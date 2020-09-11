@@ -1,0 +1,55 @@
+LAB: Google Cloud Fundamentals: Getting Started with Cloud Marketplace
+
+OBJECTIVE:
+In this lab, you learn how to launch a solution using Cloud Marketplace.
+
+STEPS:
+
+1.  Use Cloud Marketplace to deploy a LAMP stack.
+
+  - In the GCP Console, on the Navigation menu (Navigation menu), click Marketplace.
+
+  - In the search bar type LAMP CERTIFIED BY BITNAMI.
+
+  - On the LAMP page, click Launch.
+
+  - Select a preferred zone
+
+  - Accept the GCP Marketplace terms and conditions if prompted to do so.
+
+  - Click Deploy
+
+     *NOTE: The status of the deployment goes from  lampstack-1 is being deployed to
+    lampstack-1 has been deployed once the software has been installed succesfully.
+
+2.  Verify your deployment.
+
+   - When the deployment is complete, you can click the Site address link in the right pane. This displays
+   a congratulations message in the tab.
+
+   - On the GCP Console click SSH, this opens a new window
+
+   - In the new SSH window, change the working directory using this commamnd:
+
+       cd /opt/bitnami
+
+   -  Copy the phpinfo.php script from the installation directory to a publicly accessible location under 
+     the web server document root, execute the following command:
+
+       sudo sh -c 'echo "<?php phpinfo(); ?>" > apache2/htdocs/phpinfo.php'
+
+       * Now The phpinfo.php script displays your PHP configuration. This is used often to verify a new PHP 
+      installation.
+
+   - Close the SSH window using this command:
+
+       exit
+
+   - Open a new browser tab and type the following URL, replacing SITE_ADDRESS with the URL in the Site 
+    address field in the right pane of the lampstack page in this manner
+
+       http://SITE_ADDRESS/phpinfo.php
+
+       * A summary of the PHP configuration of your server is displayed.
+
+   - Now you can close the phpinfo tab.
